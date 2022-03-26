@@ -5,7 +5,7 @@
 
 ------
 
- [AMD-Xilinx Kria KV260 Vision AI Starter Kit](https://www.hackster.io/xilinx/products/kria-kv260-vision-ai-starter-kit?ref=project-f9dad2)                                                                                                                                                   sx1
+ [AMD-Xilinx Kria KV260 Vision AI Starter Kit](https://www.hackster.io/xilinx/products/kria-kv260-vision-ai-starter-kit?ref=project-f9dad2)                                                                                                                                                   x1
 
 HIKVISION E14a 2K usb camera                                                                                                                                                                       x1
 
