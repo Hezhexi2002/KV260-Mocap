@@ -1,2 +1,9 @@
 # KV260-Mocap
-a portable and high quality Mocap device using KV260
+## Things used in this project
+
+### Hardware components
+
+------
+
+[https://www.hackster.io/xilinx/products/kria-kv260-vision-ai-starter-kit?ref=project-91cb92]: 
+
