@@ -45,3 +45,5 @@ On your PC, download the Balena Etcher to write it to your SD card.
 
 - https://www.balena.io/etcher/
 
+![](https://github.com/Hezhexi2002/KV260-Mocap/blob/main/assets/etcher.png)
+
