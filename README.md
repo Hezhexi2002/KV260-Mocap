@@ -59,5 +59,146 @@ Connect the power supply to turn on the Kria and you will see the Ubuntu login s
 
 > *The default login credentials are:****username\****: ubuntu****password\****: ubuntu*
 
+But then as soon as I typed the default password, **ubuntu**, on this first boot it immediately forced me to change it to set my own password.
 
+Next, update the system to the latest by doing system updates and calling this command
+
+```
+sudo apt upgrade
+```
+
+Now you have prepared everything already for the next step.
+
+### Kria: Install the MocapNET
+
+#### Building the library
+
+First of all you need to install the dependencies before building the library of MocapNET with following commands
+
+```
+sudo apt-get install git build-essential cmake libopencv-dev libjpeg-dev libpng-dev libglew-dev libpthread-stubs0-dev
+```
+
+Then you can clone the MocapNET repository and run the following command to install it
+
+```
+git clone https://github.com/FORTH-ModelBasedTracker/MocapNET
+
+cd MocapNET
+
+./initialize.sh
+```
+
+After performing changes to the source code, you do not need to rerun the initialization script. You can recompile the code by using :
+
+```
+cd build 
+cmake .. 
+make 
+cd ..
+```
+
+However,you have to deal with a error when you are building the whole project at last
+
+![](https://github.com/Hezhexi2002/KV260-Mocap/blob/main/assets/libtensorflow_error.png)
+
+That is because the initialize.sh will install the tensorflow library so for x86_64 architecture device by default while the cpu of KV260 belongs to arm64 architecture.So I found a precompiled libtensorflow.so for jetson nano which also works for KV260 from this link:
+
+[]: https://github.com/nevillerichards/tensorflow/releases
+
+After you download the libtensorflow.tar.gz from the url and extract the file you will see a include folder and a lib folder like this
+
+![](https://github.com/Hezhexi2002/KV260-Mocap/blob/main/assets/precompiled_libtensorflow.png)
+
+And all you need to do is to run following command to replace the original lib folder of the default libtensorflow in `~/Desktop/MocapNET/dependencies/libtensorflow/lib`  
+
+```
+# ~/Downloads is where I extract the libtensorflow.tar.gz to,you can change the directory depend on your path where the libtensorflow.tar.gz is extracted to.
+cd ~/Downloads
+
+sudo cp lib ~/Desktop/MocapNET/dependencies/libtensorflow
+```
+
+Finally when you re-run the initialize.sh you will successfully build the MocapNET like this
+
+![](https://github.com/Hezhexi2002/KV260-Mocap/blob/main/assets/success_build.png)
+
+And yep you have successfully installed MocapNET on KV260 and let's begin to have fun with it!
+
+#### Updating the library
+
+The MocapNET library is under active development, the same thing is true for its dependencies.
+
+In order to update all the relevant parts of the code you can use the [update.sh](https://github.com/FORTH-ModelBasedTracker/MocapNET/blob/master/update.sh) script provided.
+
+```
+./update.sh
+```
+
+If you made changes to the source code that you want to discard and want to revert to the master you can also use the [revert.sh](https://github.com/FORTH-ModelBasedTracker/MocapNET/blob/master/revert.sh) script provided
+
+```
+./revert.sh
+```
+
+### Kria: Test the MocapNET 
+
+#### Testing the library and performing benchmarks
+
+To test your OpenCV installation as well as support of your webcam issue :
+
+```
+./OpenCVTest --from /dev/video0 
+```
+
+To test OpenCV support of your video files issue :
+
+```
+./OpenCVTest --from /path/to/yourfile.mp4
+```
+
+#### Live Demo
+
+Assuming that the OpenCVTest executable described previously is working correctly with your input source, to do a live test of the MocapNET library using a webcam issue :
+
+```
+./MocapNET2LiveWebcamDemo --from /dev/video0 --live
+```
+
+To dump 5000 frames from the webcam to out.bvh instead of the live directive issue :
+
+```
+./MocapNET2LiveWebcamDemo --from /dev/video0 --frames 5000
+```
+
+To control the resolution of your webcam you can use the --size width height parameter, make sure that the resolution you provide is supported by your webcam model. You can use the v4l2-ctl tool by executing it and examining your supported sensor sizes and rates. By issuing --forth you can use our FORTH developed 2D joint estimator that performs faster but offers lower accuracy
+
+```
+ v4l2-ctl --list-formats-ext
+./MocapNET2LiveWebcamDemo --from /dev/video0 --live --forth --size 800 600
+```
+
+Testing the library using a pre-recorded video file (i.e. not live input) means you can use a slower but more precise 2D Joint estimation algorithm like the included OpenPose implementation. You should keep in mind that [this OpenPose implementation](https://github.com/FORTH-ModelBasedTracker/MocapNET/blob/master/src/MocapNET1/MocapNETLiveWebcamDemo/utilities.cpp#L213) does not use PAFs and so it is still not as precise as the official OpenPose implementation. To run the demo with a prerecorded file issue :
+
+```
+./MocapNET2LiveWebcamDemo --from /path/to/yourfile.mp4 --openpose
+```
+
+We have included a [video file](http://ammar.gr/mocapnet/shuffle.webm) that should be automatically downloaded by the initialize.sh script. Issuing the following command should run it and produce an out.bvh file even if you don't have any webcam or other video files available! :
+
+```
+./MocapNET2LiveWebcamDemo --from shuffle.webm --openpose --frames 375
+```
+
+Since high-framerate output is hard to examine, if you need some more time to elaborate on the output you can use the delay flag to add programmable delays between frames. Issuing the following will add 1 second of delay after each processed frame :
+
+```
+./MocapNET2LiveWebcamDemo --from shuffle.webm --openpose --frames 375 --delay 1000
+```
+
+If your target is a headless environment then you might consider deactivating the visualization by passing the runtime argument --novisualization. This will prevent any windows from opening and thus not cause issues even on a headless environment.
+
+BVH output files are stored to the "out.bvh" file by default. If you want them to be stored in a different path use the -o option. They can be easily viewed using a variety of compatible applicatons. We suggest [Blender](https://www.blender.org/) which is a very powerful open-source 3D editing and animation suite or [BVHacker](https://www.bvhacker.com/) that is freeware and compatible with [Wine](https://wiki.winehq.org/)
+
+![](https://github.com/Hezhexi2002/KV260-Mocap/blob/main/assets/live_demo.png)
 
