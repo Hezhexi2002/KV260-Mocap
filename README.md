@@ -39,7 +39,7 @@ We will download using Ubuntu 20.04.3 LTS. Download the image from the website a
 
 - https://ubuntu.com/download/xilinx
 
-![https://github.com/Hezhexi2002/KV260-Mocap/blob/main/assets/ubuntu.png]()
+![](https://github.com/Hezhexi2002/KV260-Mocap/blob/main/assets/ubuntu.png)
 
 On your PC, download the Balena Etcher to write it to your SD card.
 
