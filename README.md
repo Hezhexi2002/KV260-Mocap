@@ -47,3 +47,17 @@ On your PC, download the Balena Etcher to write it to your SD card.
 
 ![](https://github.com/Hezhexi2002/KV260-Mocap/blob/main/assets/etcher.png)
 
+Once done, your SD card is ready and you can insert it into your Kria.
+
+### Kria: Setup Xilinx Ubuntu
+
+Connect a USB Keyboard, USB Mouse, USB Camera, HDMI/DisplayPort and Ethernet to the Kria.
+
+![](https://github.com/Hezhexi2002/KV260-Mocap/blob/main/assets/device.jpg)
+
+Connect the power supply to turn on the Kria and you will see the Ubuntu login screen.
+
+> *The default login credentials are:****username\****: ubuntu****password\****: ubuntu*
+
+
+
