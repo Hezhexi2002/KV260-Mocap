@@ -29,7 +29,7 @@ HIKVISION E14a 2K usb camera                                                    
 
 ### Summary of Development Flow
 
-The hardware used is the Xilinx Kria KV260, the camera kit for accelerated computer vision processing, and Ethernet connectivity. However,due to limited spare time in my last semester I didn't realize using the DPU of KV260 to accelerate the MocapNET which means I just use the default C API of tensorflow of the MocapNET.So although the MocapNET can run on the KV260 up to real time now but it can be more faster if I use the DPU of KV260.Anyway,I will the VART library to reconstruct the code of the model inference in the future but there is not enough time for me to finish the plan befor the deadline of the contest.
+The hardware used is the Xilinx Kria KV260, the camera kit for accelerated computer vision processing, and Ethernet connectivity. I choose the HIKVISION E14a 2K usb camera to capture frame in a high resolution and then I will use the MocapNET to achieve the motion capture in real time and generate the BVH files which can be edited in 3D editing and animation software such as [Blender](https://www.blender.org/) .
 
 ### PC: Setup SD Card Image
 
@@ -192,5 +192,4 @@ This first picture shows the result of the live demo and second shows the BVH fi
 
 ### Conclusion
 
-
-
+As you can see the result of the MocapNET running on KV260 is not so good due to limited spare time in my last semester I didn't realize using the DPU of KV260 to accelerate the MocapNET which means I just use the default C API of tensorflow of the MocapNET.So although the MocapNET can run on the KV260 up to real time now but it can be more faster if I use the DPU of KV260.Anyway,I will the VART library to reconstruct the code of the model inference in the future but there is not enough time for me to finish the plan befor the deadline of the contest.
