@@ -104,7 +104,7 @@ However,you have to deal with a error when you are building the whole project at
 
 That is because the initialize.sh will install the tensorflow library so for x86_64 architecture device by default while the cpu of KV260 belongs to arm64 architecture.So I found a precompiled libtensorflow.so for jetson nano which also works for KV260 from this link:
 
-[]: https://github.com/nevillerichards/tensorflow/releases
+[https://github.com/nevillerichards/tensorflow/releases]: 
 
 After you download the libtensorflow.tar.gz from the url and extract the file you will see a include folder and a lib folder like this
 
