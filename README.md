@@ -25,7 +25,7 @@ HIKVISION E14a 2K usb camera                                                    
 
 **Goal:**  My project aims to use KV260 running the MocapNET to make it possible for anyone to achieve motion capture anywhere without the bulky equipments requierd by the traditional optical mocap system.Bsides,the KV260-Mocap can output the BVH files and then edit in Blender,and also thanks to the high computing capabilities of KV260,the KV260-Mocap can basically achieve the motion capture in real time.When running the MocapNET,the animator can view the human model directly and adjust the parameters in real time which can accelerate their workflow a lot.For sure,the doctors can use it to build a custom skeleton model for their patients which help them to locate the lesions point of the patients too.
 
-![](https://github.com/Hezhexi2002/KV260-Mocap/blob/main/asset/blender.png)
+![](https://github.com/Hezhexi2002/KV260-Mocap/blob/main/assets/blender.png)
 
 ### Summary of Development Flow
 
