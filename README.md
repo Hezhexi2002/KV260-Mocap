@@ -57,7 +57,7 @@ Connect a USB Keyboard, USB Mouse, USB Camera, HDMI/DisplayPort and Ethernet to 
 
 Connect the power supply to turn on the Kria and you will see the Ubuntu login screen.
 
-> *The default login credentials are:****username\***: ubuntu****password\***: ubuntu*
+> *The default login credentials are:****username\: ubuntu****password\: ubuntu*
 
 But then as soon as I typed the default password, **ubuntu**, on this first boot it immediately forced me to change it to set my own password.
 
