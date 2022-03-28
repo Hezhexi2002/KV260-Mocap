@@ -1,0 +1,3 @@
+[submodule "MocapNET"]
+	path = MocapNET
+	url = https://github.com/FORTH-ModelBasedTracker/MocapNET
