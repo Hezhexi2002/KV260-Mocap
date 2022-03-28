@@ -79,7 +79,8 @@ First of all you need to install the dependencies before building the library of
 sudo apt-get install git build-essential cmake libopencv-dev libjpeg-dev libpng-dev libglew-dev libpthread-stubs0-dev
 ```
 
-**Note:I have added the master branch of MocapNET as a submodule in my repository which can lead you to find the repo quickly and I have compressed my compiled MocapNET as a zip file which can be directly used without building the MocapNET in the next steps as long as you have  install the dependencies above,you can download it from my [BaiduNetdisk]() **
+**Note:I have added the master branch of MocapNET as a submodule in my repository which can lead you to find the repo quickly and I have compressed my compiled MocapNET as a zip file which can be directly used without building the MocapNET in the next steps as long as you have  install the dependencies above,you can download it from my [BaiduNetdisk](链接：https://pan.baidu.com/s/1GSDoZUsgv_fFSi_jMRMKQg 
+提取码：1234) **
 
 Then you can clone the MocapNET repository and run the following command to install it
 
