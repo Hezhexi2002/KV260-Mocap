@@ -57,7 +57,7 @@ Connect a USB Keyboard, USB Mouse, USB Camera, HDMI/DisplayPort and Ethernet to 
 
 Connect the power supply to turn on the Kria and you will see the Ubuntu login screen.
 
-> *The default login credentials are:****username\****: ubuntu****password\****: ubuntu*
+> *The default login credentials are:****username\***: ubuntu****password\***: ubuntu*
 
 But then as soon as I typed the default password, **ubuntu**, on this first boot it immediately forced me to change it to set my own password.
 
@@ -78,6 +78,8 @@ First of all you need to install the dependencies before building the library of
 ```
 sudo apt-get install git build-essential cmake libopencv-dev libjpeg-dev libpng-dev libglew-dev libpthread-stubs0-dev
 ```
+
+
 
 Then you can clone the MocapNET repository and run the following command to install it
 
@@ -192,4 +194,4 @@ This first picture shows the result of the live demo and second shows the BVH fi
 
 ### Conclusion
 
-As you can see the result of the MocapNET running on KV260 is not so good due to the limited spare time in my last semester and I didn't realize using the DPU of KV260 to accelerate the MocapNET which means I just use the Cortex A53 processor of KV260 to run the MocapNET.So although the MocapNET can run on the KV260 up to real time now but it can be more faster if I use the DPU of KV260.Anyway,I will the VART library to reconstruct the code of the model inference in the future but there is not enough time for me to finish the plan befor the deadline of the contest.
+As you can see the result of the MocapNET running on KV260 is not so good due to the limited spare time in my last semester and I didn't realize using the DPU of KV260 to accelerate the MocapNET which means I just use the Cortex A53 processor of KV260 to run the MocapNET.So although the MocapNET can run on the KV260 up to real time now but it can be more faster if I use the DPU of KV260.Anyway,I plan to use the VART library to reconstruct the code of the model inference in the future but there is not enough time for me to finish the plan befor the deadline of the contest.I believe it will be more faster than now with the speed up of DPU.
